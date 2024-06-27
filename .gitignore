@@ -1,0 +1,9 @@
+
+
+# ignore node dependency directories
+node_modules/
+.idea/
+wp/wp-content/ai1wm-backups/web.config
+wp/wp-content/ai1wm-backups/index.php
+wp/wp-content/ai1wm-backups/index.html
+db.txt

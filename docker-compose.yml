@@ -1,0 +1,79 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: tmtuan
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    container_name: yamaha
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./wp:/var/www
+    networks:
+      - yamaha
+    expose:
+      - 3000
+            
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: omn_yamaha
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_PASSWORD: tmt123456
+      MYSQL_USER: ymh_usr
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+      MYSQL_HOST: mysql
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+    volumes:
+      - ./docker-compose/db:/docker-entrypoint-initdb.d
+      - dbdata:/var/lib/mysql
+    networks:
+      - yamaha
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.1.1
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: secret
+      UPLOAD_LIMIT: 1G
+      MAX_EXECUTION_TIME: 100000
+    depends_on:
+      - db
+    networks:
+      - yamaha
+
+  nginx:
+    image: nginx:alpine
+    container_name: yamaha-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./wp:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - yamaha
+
+networks:
+  yamaha:
+    driver: bridge
+
+#volumes
+volumes:
+  dbdata:
+    driver: local

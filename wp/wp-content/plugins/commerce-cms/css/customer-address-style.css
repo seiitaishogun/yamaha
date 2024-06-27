@@ -1,0 +1,141 @@
+.pmessage{}
+.hidden{display: none;}
+.show{display: block;} .popup_site{top: -1000px; left: -1000px}
+.popup_site.show{
+    position: fixed;
+    width: auto; 
+    height: auto;
+    display: flex;
+    align-items: center; 
+    vertical-align: middle;
+     background-color: transparent; 
+    z-index: 99999;
+    text-align: center; 
+    margin: 30vh 50vh; top: auto; left: auto;transition: transform 0.1s ease-out ;
+}
+ .popup_site .error_message.active,
+.popup_site .popup_content {
+    display: block;
+    height: auto;
+    align-self: center;
+    width: auto;
+    max-width: 70%; 
+    padding: 20px;
+    color: rgba(11,25,170,1.00); 
+    font-size: 20px; 
+    text-align: center;
+    transition: transform 0.2s ease-out ;
+    position: fixed;
+    background: #ffffff;  
+    box-shadow: 0px 1px 5px -1px #1919197d;
+}  
+.popup_site .error_message.active {
+    color: #FF0000;
+    display: block !important;
+    z-index: 999;
+    top: auto;
+}
+
+	.pmessage.active{display: block; padding: 4px 10px; color:rgba(11,25,170,1.00); border-left: 2px solid rgba(11,25,170,1.00); }
+	.error_pmessage.active{display: block; padding: 4px 10px; color: rgba(247,45,49,1.00); border-left: 2px solid rgba(247,45,49,1.00); }
+	
+	.address_wrapped{position:fixed; top: 70px; width: 750px; max-width: 750px; height: auto; z-index: 9999;  display:none; }
+	
+	/*.address_wrapped.active{ display:block; margin: 0 auto !important;top:70px; left: 25%; right: 25%;} */
+	
+	.addsticky{position: fixed !important; width: 750px; max-width: 750px; margin:0 auto; transform: translateY(0);
+	transition: transform 0.25s ease-in-out;top:70px}
+	
+	.address_book_form {background: rgba(255,255,255,1.00); position: relative; z-index: 99999; max-width:100%; } 
+	
+	.address_wrapped.box-shadow03rem { margin:0px; color: rgba(35,35,35,1.00);
+		padding:20px 20px;
+	box-shadow: 0 0 0.3rem 1px rgba(0, 0, 0, 0.18);
+	transform: translateY(0);
+	transition: transform 0.25s ease-in-out, box-shadow 0.1s 0.25s linear; }  
+	  
+	.address_book_form hr{padding: 0 !important;margin:3px auto  !important; height: 3px !important;}
+	
+	#mask_popup_address {position:absolute; background: rgba(3,3,3,0.6); }
+	#mask_popup_site {position:absolute; background: rgba(3,3,3,0.66); }
+	
+	.address_book_form.active {display:block; position:relative; z-index: 99999; height: auto; color: rgba(35,35,35,1.00); margin: 20px auto; clear: both; }
+	
+	.address_book_form.active input, .address_book_form.active input{padding: 3px 15px;}
+	
+	#mask_popup_site.active, #mask_popup_site.show,
+	#mask_popup_address.active{display:block; position:absolute; width: 100%; z-index:9999; top:0px;bottom:0px; padding: 0; height: 100%; left: 0; right: 0; margin: 0; }
+	 
+	.close_me {display: none;}
+	.close_me i{font-size: 1.2em;}
+	.close_me{position: absolute; top: 0; right: 0; border-radius:5px; color: #333; border: 1px solid #eee; display: flex; padding: 2px 6px; }
+	
+	#btnAddAddress, #btnEditAddress{position: relative;}
+	.input-group-append.tmt-pass-apend{cursor: pointer;}
+	
+	.mrcenter, .addsticky.mrcenter, .address_book_form.mrcenter, .address_wrapped.mrcenter,
+	.active.mrcenter, .mrcenter .address_book_form.box-shadow03rem{margin:0 auto !important;}
+
+.single-address-item .btn-clip.btn-border-blue:after{
+	background: #f3f3f3 !important;
+    background-color: #f3f3f3 !important;
+    width: 14px;
+    top: 37px;
+    right: -10px;
+    border: 1px solid #f3f3f3;
+    border-left: 1px solid #0A2D82;
+}
+
+.btn-clip:hover{
+  box-shadow: none !important;
+}
+.btn-clip:hover:after{
+  opacity: 1 !important;
+}
+.btn-clip.btn-border-blue:hover:after{
+  border-left-color: #ff0000;
+}
+
+.single-address-item .btn-clip.btn-border-blue:hover:after{
+	background: #f3f3f3 !important;
+    background-color: #f3f3f3 !important;
+    border-left-color: #ff0000;
+    opacity: 1;
+}
+
+.single-address-item .btn-clip.btn-border-gray{
+	border: solid 1px #7a7c7e;
+	z-index: 0;
+	margin-right: 0px;
+}
+ul.product__color.mrcenter.pd0{
+    padding-bottom: 50px;
+}
+.single-address-item .btn-clip.btn-border-gray:after{
+	background: #f3f3f3 !important;
+    background-color: #f3f3f3 !important;
+    display: block;
+    position: absolute;
+    border: 1px solid #f3f3f3;
+    border-left: 1px solid #7a7c7e;
+    top: 37px;
+    right: -8px;
+    z-index: 4;
+    transform: skewX(-45deg);
+    height: 10px;
+}
+.single-address-item .btn-clip.btn-border-gray:hover:after{
+	background: #f3f3f3 !important;
+    background-color: #f3f3f3 !important;
+    border-left-color: #7a7c7e;
+    opacity: 1;
+}
+	
+@media (max-width:768px){
+	.address_wrapped{width: 320px; max-width: 320px;  }
+	.addsticky{width: 320px; max-width: 320px;right:auto; left: auto; margin:0 auto; }
+	.close_me {display: block;}
+	.form_CustomerAddress .btn-clip.btn-border-green{
+		margin-top: 15px;
+	}
+}

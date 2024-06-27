@@ -1,0 +1,92 @@
+{
+  "promotion_data": [
+    {
+      "promotion_id": "00001",
+      "promotion_code": "00001",
+      "promotion_name": "Promotion 1",
+      "promotion_item_data": [
+        {
+          "sf_record_type": "Discount Amount",
+          "promotion_item_id": "IT00001",
+          "promotion_item_code": "IT00001",
+          "promotion_item_name": "promotion item name 1",
+          "promotion_id": "00001",
+          "valid_from": "2022/03/30",
+          "valid_to": "2022/04/08",
+          "voucher_amount": 100000,
+          "description": "",
+          "discount": 0,
+          "promotion_pack_data": [
+            {
+              
+              "item_pack_id": "p0001",
+              "promotion_pack_code": "p0001",
+              "promotion_pack_name": "p0001 name"
+            },{
+              
+              "item_pack_id": "p0002",
+              "promotion_pack_code": "p0002",
+              "promotion_pack_name": "p0002 name"
+            }
+          ],
+          "promotion_product_data": [
+            {
+              
+              "record_type": "PCA",
+              "product_code": "pd001", 
+              "discount": 0,
+              "list_price": 0,
+              "sale_price": 0
+            },
+            {              
+              "record_type": "Bike",
+              "product_code": "pd002",
+              "color_code": "000096",
+              "discount": 0,
+              "list_price": 0,
+              "sale_price": 0
+            }
+          ]
+        }
+      ]
+    },
+{
+      "promotion_id": "PR002",
+      "promotion_code": "PR002",
+      "promotion_name": "PR002 Name",
+      "promotion_item_data": [
+        {
+          "sf_record_type": "Discount",
+          "promotion_item_id": "IT0003",
+          "promotion_item_code": "IT0003",
+          "promotion_item_name": "IT0003 name",
+          "promotion_id": "string",
+          "valid_from": "2022/02/03",
+          "valid_to": "2022/08/30",
+          "voucher_amount": 0,
+          "description": "",
+          "discount": 10,
+          "promotion_pack_data": [
+            {
+               
+              "item_pack_id": "001",
+              "promotion_pack_code": "001",
+              "promotion_pack_name": "001 name"
+            }
+          ],
+          "promotion_product_data": [
+            {
+              
+              "record_type": "PCA",
+              "product_code": "00012",
+              
+              "discount": 0,
+              "list_price": 0,
+              "sale_price": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

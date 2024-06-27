@@ -1,0 +1,206 @@
+.f {
+    @include e("row") {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-auto-rows: auto;
+    }
+
+    @include e("list") {
+        li {
+            margin-bottom: $space;
+
+            &:first-child {
+                margin-bottom: 24px;
+            }
+
+            &:last-child {
+                margin-right: 0px;
+            }
+
+            a {
+                font-size: 14px;
+                color: var(--l-gray);
+                transition-duration: .3s;
+
+                &:hover {
+                    color: var(--white);
+                }
+            }
+        }
+    }
+
+    @include e("social") {
+        li {
+            display: inline-block;
+            margin-right: 39px;
+
+            @media only screen and (max-width: 1400px) {
+                margin-right: 25px;
+            }
+
+            .icon {
+                display: inline-block;
+                @include size(20px);
+                background: var(--l-gray);
+                @include css3_prefix(mask-size, contain);
+                @include css3_prefix(mask-repeat, no-repeat);
+                vertical-align: middle;
+                transition-duration: .3s;
+
+                &:hover {
+                    background: var(--white);
+                }
+
+                @media only screen and (max-width: 1400px) {
+                    @include size(25px);
+                }
+            }
+        }
+    }
+
+    @include e("end") {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 0;
+    }
+
+    @include e("accordion-item") {
+        .cavet {
+            position: relative;
+            @include size(14px);
+
+            &:after,
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                background: var(--red);
+                top: 50%;
+                left: 0;
+                @include transform(translateY(-50%));
+            }
+        }
+    }
+
+    @include respond-to($lg) {
+        footer {
+            padding: 40px 0 40px;
+        }
+
+        @include e("end") {
+            flex-direction: row;
+        }
+
+        @include e("block-social") {
+            background: var(--gray);
+            padding: 40px 0;
+        }
+
+        @include e("social") {
+            li {
+                .icon {
+                    background: var(--white);
+                }
+            }
+        }
+
+        @include e("list") {
+            border-bottom: 1px solid var(--gray);
+
+            li {
+                position: relative;
+                cursor: pointer;
+                color: var(--white);
+                font-size: 14px;
+                text-transform: uppercase;
+                padding: 12px $space;
+                align-items: center;
+                opacity: 0.6;
+                margin-bottom: 0;
+
+                &:first-child {
+                    margin-bottom: 0;
+                }
+
+                &:before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    @include transform(translateY(-50%));
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    padding: 50px 0;
+    z-index: 20;
+    position: relative;
+    @media screen and (max-width: 960px) {
+        padding: 20px 0;
+    }
+
+    .f__accordion:last-child {
+        button {
+            border: 0;
+        }
+    }
+
+    .footer-mb {
+        padding: 0 25px !important;
+    }
+
+    ul.f__list {
+        h6 {
+            text-transform: uppercase;
+        }
+    }
+
+    .copyright {
+        font-size: 14px;
+        position: relative;
+        top: 26px;
+    }
+
+    .text-operator {
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.5px;
+        color: var(--l-gray);
+        margin-bottom: 15px;
+        max-width: 210px;
+    }
+
+    .footer-logo-mb {
+        display: flex;
+        border-bottom: 1px solid var(--gray);
+        padding-bottom: 20px;
+        margin: 0 25px;
+
+        .f__logo {
+            margin-right: 10px;
+            img {
+                max-width: 125px;
+            }
+        }
+
+        .text-operator {
+            font-size: 10px;
+            line-height: 16px;
+            margin-top: 3px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .footer-pc {
+        display: none;
+    }
+}

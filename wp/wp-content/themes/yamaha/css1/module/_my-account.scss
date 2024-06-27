@@ -1,0 +1,90 @@
+.my-account {
+  background-color: #E5E5E5;
+  .main-info {
+    color: #333;
+    .nav{
+      background-color: white;
+    }
+    .nav-link {
+      font-family: $main;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: -0.005em;
+      padding-left: 10px;
+      margin-right: 40px;
+      border: none;
+      color: var(--text);
+      @media screen and (max-width: 767px) {
+        margin-right: 35px;
+      }
+
+      &.active {
+        color: #f00;
+        border-bottom: 1px solid #f00;
+      }
+      i{
+        color: unset;
+        margin-right: 8px;
+      }
+    }
+
+    .tab-content {
+
+      .tab-pane {
+        font-size: 14px;
+        
+        letter-spacing: -0.5px;
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      ul {
+        padding-left: 20px;
+
+        li::before {
+          content: "\2022";
+          color: red;
+          font-weight: bold;
+          display: inline-block;
+          margin-bottom: 8px;
+          width: 1em;
+          margin-left: -1.4em;
+        }
+      }
+    }
+  }
+//  -------------------------- History Order
+.order-list{
+  .single-order{
+    background-color: white;
+    padding: 18px 15px;
+    .id-order, .order-quantity, .price{
+      font-family: $mainBold;
+      text-transform: uppercase;
+      font-size: 24px;
+    }
+    .create-date{
+      font-size: 16px;
+      color: #7A7C7E;
+    }
+    .order-status{
+      font-size: 20px;
+      font-weight: 600;
+      color: #0A2D82;
+    }
+    .checked{
+      color: #41B67E;
+    }
+    .price{
+      font-size: 32px;
+      color: #FF0000;
+    }
+  }
+  
+}
+}
+

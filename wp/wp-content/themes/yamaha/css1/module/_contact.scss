@@ -1,0 +1,39 @@
+.contact-us {
+    color: var(--gray);
+    padding: 40px 0 64px;
+    @media screen and (min-width: 768px){
+        padding: 64px 0;
+    }
+    .title, p {
+        margin-bottom: 24px;
+    }
+    .hotline {
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 600;
+        color: var(--red);
+        img {
+            margin-right: 10px;
+            margin-top: -3px;
+        }
+    }
+    strong {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        margin-bottom: 8px;
+        img {
+            margin-right: 10px;
+        }
+    }
+
+    .map {
+        iframe {
+            width: 100%;
+            height: 260px;
+            @media screen and (min-width: 768px){
+                height: 720px;
+            }
+        }
+    }
+}

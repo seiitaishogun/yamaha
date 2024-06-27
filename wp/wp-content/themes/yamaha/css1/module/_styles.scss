@@ -1,0 +1,257 @@
+$main: "Inter", sans-serif;
+$mainBold: "Oswald", sans-serif;
+
+$light: 300;
+$regular: 400;
+$medium: 600;
+$bold: 700;
+
+:root {
+  --blue: #0a2d82;
+  --red: #ff0000;
+  --dark: #1d1f21;
+  --gray: #53575b;
+  --text: #53575b;
+  --l-gray: #7a7c7e;
+  --l-gray2: #f3f3f3;
+  --line: #e1e1e1;
+  --dark-o: rgba(29, 31, 33, 0.9);
+}
+
+a {
+  color: var(--text);
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: initial;
+    i {
+      color: initial;
+      background: initial;
+    }
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+label {
+  margin: 0;
+}
+
+* {
+  outline: none !important;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+textarea {
+  resize: none;
+}
+
+html {
+  margin-top: 0!important;
+}
+
+body {
+  position: relative;
+  @include size(100%);
+  @include font($main, 1rem, white);
+  overflow-x: hidden;
+  &.menu-moto-hover {
+    // overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 56px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+.ff-2 {
+  font-family: $main;
+}
+
+.ff-1 {
+  font-family: $mainBold;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.exbold {
+  font-weight: 700;
+}
+
+.colorDark {
+  color: var(--text);
+}
+
+.colorGray {
+  color: var(--text);
+}
+
+.colorLGray {
+  color: var(--l-gray);
+}
+
+.colorLGray2 {
+  color: var(--l-gray2);
+}
+
+.colorWhite {
+  color: #fff;
+}
+
+.colorLine {
+  color: var(--line);
+}
+
+.colorRed {
+  color: var(--red);
+}
+
+.bgGray {
+  background-color: var(--l-gray2);
+}
+
+.bgDark {
+  background-color: var(--dark);
+}
+
+.btn {
+  color: var(--text);
+  &:hover {
+    color: var(--text);
+  }
+}
+
+.ico {
+  @include e("chev-right") {
+    width: 6px;
+    height: 10px;
+    display: inline-block;
+    @include mask-image("../img/ic_chevron-right.svg", contain);
+    background: var(--red);
+  }
+  @include e("chev-left") {
+    width: 6px;
+    height: 10px;
+    display: inline-block;
+    @include mask-image("../img/ic_chevron-left.svg", contain);
+    background: var(--dark);
+  }
+}
+
+.container-fluid {
+  max-width: $container;
+
+  @include respond-to(1400px) {
+    max-width: $xl;
+  }
+  @include respond-to($xl) {
+    max-width: $lg;
+  }
+}
+
+.text-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  @media screen and (max-width: 767px){
+    overflow: unset;
+    display: block;
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+}
+
+.wrapper-container {
+  max-width: 1092px;
+  margin: 0 auto;
+  @include m("sm") {
+    max-width: 652px;
+  }
+}
+
+@include respond-to($lg) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3,
+  h4 {
+    font-size: 18px;
+  }
+
+  .fz14 {
+    font-size: 12px;
+  }
+
+  .fz20 {
+    font-size: 20px;
+  }
+
+  .bgWhitemb {
+    background-color: var(--white);
+  }
+  .bgLGraymb {
+    background-color: var(--l-gray2);
+  }
+}

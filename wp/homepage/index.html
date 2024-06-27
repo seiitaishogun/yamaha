@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="icon" type="image/png" href="img/favicon.ico">
+	<title>REVZONE YAMAHA MOTOR</title> 
+<script>
+//jQuery(document).ready(function() {
+	var today = new Date(Date.now());
+	var birthday = new Date('2022-03-26 19:45:59');
+ 
+	let timebirthday = birthday.getTime();
+	let timetoday = today.getTime();
+
+	console.log(birthday);
+	console.log(today);
+
+	console.log('time birthday: ' + timebirthday);
+	console.log('   time today: ' + timetoday);
+	 
+	if(timebirthday <= timetoday){ 
+		setTimeout(function(){window.location.href='https://www.revzoneyamaha-motor.com.vn/';}, 100);
+	} 
+//});
+
+</script>
+<style type="text/css">
+	.w_50{align-items: center; margin:auto; width:60%; height:100%;}
+	.margin_30{margin: 30px auto;}
+
+	@media (max-width: 1024px){
+		.w_50{ width:80%;}
+	}
+	@media (max-width: 960px){
+		.w_50{ width:99%;}
+		h2.margin_30{font-size: 22px;}
+	}
+</style>
+</head> 
+<body style="text-align: center; font-family: Arial; padding:10% 20px; height:auto; background: #f2f2f2;">
+	<div class="w_50">
+		<h1 id="logo" class="margin_30">
+			<a href="https://www.revzoneyamaha-motor.com.vn">
+				<img src="https://yamaha-motor.com.vn/wp/wp-content/themes/yamaha/assets/img/share/logo-yamaha.png" width="224" height="79" alt="Yamaha revs your heart" class="webpexpress-processed">
+			</a>
+		</h1>
+		<h2 class="margin_30">REVZONE YAMAHA MOTOR</h2>
+		<p style="line-height:24px;"> WEBSITE SẼ ĐƯỢC MỞ LẠI VÀO LÚC 20:00 NGÀY 26/03 NGAY KHI REVZONE YAMAHA MOTOR CHÍNH THỨC ĐƯỢC KHAI TRƯƠNG.</p>
+	</div>
+</body>
+</html>

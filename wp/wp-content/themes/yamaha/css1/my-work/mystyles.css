@@ -1,0 +1,303 @@
+.p-detail-quantity {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+.p-detail-quantity span {
+  display: inline-block;
+  width: 70px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  margin-right: 20px;
+}
+.p-detail-quantity .btn-mins {
+  padding-left: 0px;
+}
+.p-detail-quantity .btn-plus {
+  padding-right: 0px;
+}
+.p-detail-quantity .btn-mins, .p-detail-quantity .btn-plus {
+  font-weight: bold;
+  color: black;
+}
+.p-detail-quantity .quantity {
+  font-weight: bold;
+}
+.p-detail-quantity input[name="quantity"] {
+  width: 45px;
+}
+.spacer-20 {
+  padding-bottom: 20px;
+}
+.spacer-10 {
+  padding-bottom: 10px;
+}
+.spacer-horizon-10 {
+  padding-left: 10px;
+}
+.spacer-horizon-2 {
+  padding-left: 2px;
+}
+.nav {
+  flex-wrap: nowrap;
+}
+.p-detail-price {
+  display: flex;
+  align-items: baseline;
+}
+.p-detail-price .discount-price {
+  font-size: 22px;
+  color: #7A7C7E;
+  text-decoration-line: line-through;
+}
+.info-dealer-box {
+  display: flex;
+}
+.input-label {
+  padding: 5px 10px;
+  border: 2px solid #0000000d;
+}
+.input-label span {
+  color: red;
+  padding: 0px 5px;
+  font-weight: 900;
+}
+.input-label label {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.input-label input {
+  border: 0;
+  padding: unset;
+  width: 100%;
+  font-weight: bold;
+}
+.input-search-city {
+  display: flex;
+  padding: 11px 10px;
+  border: 2px solid #0000000d;
+}
+.input-search-city input {
+  border: 0;
+  padding: unset;
+  width: 100%;
+}
+.dealer-card{
+  background-color: #0000001c;
+  padding: 15px;
+}
+
+.dealer-card .dealer-box-name{
+  display: flex;
+}
+.dealer-box-name .dealer-name{
+  color: black;
+  font-weight: bold;
+}
+.dealer-box-name .dealer-status-instock{
+  background-color: #41B67E;
+  font-size: 12px;
+  align-self: center;
+  padding: 1px 6px;
+  color: white;
+}
+.dealer-box-name .dealer-status-outstock{
+  background-color: #E9E9E9;
+  font-size: 12px;
+  align-self: center;
+  padding: 1px 6px;
+  color: #7A7C7E;
+}
+.dealer-card .dealer-iconNtext{
+  display: flex;
+}
+.dealer-card .dealer-iconNtext span{
+  font-size: 14px;
+}
+.dealer-card .dealer-iconNtext img{
+  width: 10px;
+}
+.promo-descrip, .dealer-result{
+  
+  font-size: 15px;
+}
+.promo-descrip{
+  color: #FF0000;
+}
+.custom-btn-add-cart{
+  display: flex;
+}
+.custom-btn-add-cart img{
+  background-color: #DF121A;
+  padding: 14px 18px;
+}
+.box-action-apparel{
+  display: flex;
+}
+
+.btn-add-cart {
+  
+  border: 2px solid #0A2D82;
+    align-self: center;
+    padding: 10px 16px;
+    color: #0A2D82;
+    font-weight: bold;
+}
+/* SHOPPING CART */
+.shopping-cart{
+  position: relative;
+  background-color: #E5E5E5;
+}
+.item-shopping-cart{
+  display: flex;
+  color: #000;
+  background-color: white;
+  padding-left: 20px;
+}
+.item-cart-img {
+  flex: 13%;
+  align-self: center;
+}
+.item-cart-img>img {
+  width: 100%;
+}
+.item-cart-detail-box{
+  flex: 87%;
+  padding: 25px 105px 10px 30px;
+}
+
+.item-cart-info-box{
+  display: flex;
+}
+
+.item-cart-detail-box hr, .hr-custom {
+  border: none;
+  height: 2px;
+  background-color: #F3F3F3;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.item-cart-detail-quantity{
+  justify-content: flex-end;
+}
+.item-cart-total-box{
+  display: flex;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+}
+.total-price{
+  flex-grow: 1;
+  text-align: right;
+  color: #FF0000;
+}
+.fnt-oswald{
+  font-family: "Oswald", sans-serif;
+}
+.item-cart-detail-info{
+  flex: 40%;
+}
+.item-cart-detail-info .name{
+  font-size: 32px;
+}
+.item-cart-detail-info .showroom{
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.item-cart-detail-info a{
+  font-size: 14px;
+}
+.item-cart-detail-price{
+  align-self: baseline;
+    display: grid;
+    flex: 30%;
+    padding-left: 50px;
+}
+.item-cart-detail-price p{
+  margin: unset;
+
+}
+.item-cart-detail-price .label{
+  font-size: 12px;
+  color: #7A7C7E;
+  margin-top: 10px;
+}
+.item-cart-detail-price .item-price{
+  font-size: 24px;
+  color: #FF0000;
+}
+.item-cart-detail-price .deposit{
+  font-size: 16px;
+  color: #0A2D82;
+  font-weight: bold;
+}
+.item-cart-detail-quantity{
+  flex: 30%;
+}
+.item-cart-detail-quantity .quantity{
+  font-size: 24px;
+}
+.item-cart-detail-quantity .btn-mins{
+  color: #7A7C7E;
+}
+.item-cart-detail-quantity .btn-mins, .item-cart-detail-quantity .btn-plus{
+  font-size: 32px;
+}
+.spacer-50 {
+  padding-bottom: 50px;
+}
+.total-price-box{
+  /* justify-content: flex-end; */
+  color: #000;
+  /* display: grid; */
+  text-align: end;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+  padding: 25px 105px 10px 211px;
+}
+.total-price-box p{
+  text-align: end;
+}
+/* .total-price-box hr {
+  border: none;
+  height: 2px;
+  background-color: #E9E9E9;
+  margin-top: 20px;
+  margin-bottom: 10px;
+} */
+.hr-custom{
+  background-color: #E9E9E9 ;
+  margin-top: unset;
+  margin-bottom: 20px;
+}
+.total-price-box>.btn-clip{
+  font-family: "Inter", sans-serif;
+}
+
+/* ----------------------------------- */
+
+.product-bike-dealer {
+      background-color: unset !important;
+   padding: unset !important;
+}
+
+.label-fix{
+  max-width: 95% !important;
+}
+.custom-info-payment{
+  background-color: unset !important;
+}
+
+.custom-info-payment ul > :first-child {
+  border-top: unset !important;
+}
+.custom-info-payment .exbold {
+  color: #171717;
+}

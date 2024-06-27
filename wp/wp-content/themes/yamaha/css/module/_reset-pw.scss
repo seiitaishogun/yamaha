@@ -1,0 +1,23 @@
+.reset-pw{
+  height: auto;
+  color: #1D1F21;
+  text-align: center;
+  input[type=text], input[type=password]{
+    height: 60px;
+    text-align: center;
+    border-color: #e1e1e1;
+  }
+  
+  .fz-14{
+    font-size: 14px;
+  }
+  .fz-20{
+    font-size: 20px;
+  }
+  .fw-400{
+    font-weight: 400;
+  }
+  .fw-600{
+    font-weight: 600;
+  }
+}

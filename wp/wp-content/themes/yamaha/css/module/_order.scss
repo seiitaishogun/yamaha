@@ -1,0 +1,137 @@
+.status-order-page{
+  color: black;
+  .order-confirm-title{
+    font-size: 40px;
+    font-family: $mainBold;
+    font-weight: 700;
+  }
+  .continue{
+    color: #7A7C7E;
+    font-size: 16px;
+  }
+  .order-info{
+    background-color: #F3F3F3;
+    padding: 18px 30px;
+    p{
+      margin-bottom: 5px;
+    }
+    .text-title{
+      font-size: 16px;
+      font-weight: 600;
+      color: black;
+    }
+    .create-date-text{
+      font-size: 14px;
+      font-weight: 400;
+      color: #7A7C7E;
+    }
+    .status-1{
+      color: #41b67e;
+    }
+    .status-2{
+      color: blue;
+    }
+    .total-order{
+      color: #FF0000;
+      font-size: 20px;
+      font-family: $main;
+      font-weight: 600;
+    }
+  }
+  .order-cancel-info{
+    background-color: #F3F3F3;
+    p{
+      margin-bottom: 5px;
+    }
+    .order-cancel-item{
+      background-color: #E9E9E9;
+    }
+    .single-order{
+      .info-order{
+        padding: 18px 30px;
+        .text-title{
+          font-size: 16px;
+          font-weight: 600;
+          color: black;
+        }
+        .create-date-text{
+          font-size: 14px;
+          font-weight: 400;
+          color: #7A7C7E;
+        }
+        .status-1{
+          color: #41b67e;
+        }
+        .status-2{
+          color: blue; 
+        }
+      }
+      .header-list{
+        padding-left:  30px;
+        padding-right:  30px;
+        p{
+          font-size: 24px;
+          font-family: $mainBold;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+      .single-item{
+        font-family: $main;
+        padding: 18px 30px;
+        color: #7A7C7E;
+        .name, .price{
+          font-weight: 600;
+          font-size: 20px;
+        }
+        .info{
+          font-size: 16px;
+          font-weight: 400;
+        }
+        // &:hover{
+        //   padding: 18px 30px;
+        //   background: #E9E9E9;
+        // }
+      }
+    }
+    .total-order{
+      padding: 18px 30px;
+      color: #FF0000;
+      font-size: 20px;
+      font-family: $main;
+      font-weight: 600;
+    }
+  }
+  .info-content-box{
+    background-color: #F3F3F3;
+    padding: 24px 21px;
+    padding-top: 9px;
+    p{
+      margin-bottom: 5px;
+    }
+  }
+  .info-content{
+    background-color: white;
+    padding: 18px 35px;
+  }
+  .label-info{
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+@media screen and (max-width: 899px) {
+  .text-title{
+    text-align: left;
+  }
+  .mt-4.history-continue{
+    position: relative;
+  }
+  .mt-4.history-continue .align-self-center{
+    position: absolute;
+    top: 55px;
+    text-align: center;
+  }
+  .mb40 {
+    margin-bottom: 50px !important;
+  }
+}

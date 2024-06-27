@@ -1,0 +1,24 @@
+{
+	"name": "sihungvo/favorites",
+	"description": "Favorites-Wishlist for WordPress",
+	"keywords": ["wordpress", "plugin",  "favorite", "bookmark", "wishlist"],
+	"homepage": "https://shino.vn",
+	"license": "GPL",
+	"authors": [
+		{
+			"name": "SHUT",
+			"email": "sihungvo@gmail.com",
+			"homepage": "https://github.com/sihungvo"
+		}
+	],
+	"type": "wordpress-plugin",
+	"require": {
+		"php": ">=5.6",
+		"composer/installers": "v1.1.6"
+	},
+	"autoload": {
+		"psr-4" : {
+			"Favorites\\" : "app/"
+		}
+	}
+}

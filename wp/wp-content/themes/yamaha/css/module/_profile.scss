@@ -1,0 +1,111 @@
+.customer-profile {
+    margin-bottom: 35px;
+    .location-group {
+        background-color: #F3F3F3;
+        padding: 10px;
+
+        .form-group {
+            background-color: #fff;
+        }
+    }
+
+    .location-group h5 {
+        color: #1D1F21;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        margin-bottom: 10px;
+        letter-spacing: -0.5px;
+    }
+
+    .tmt-pass-apend span {
+        background-color: #fff;
+        border: none;
+    }
+    
+    .form-group select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: transparent;
+        background-image: url("data:image/svg+xml;utf8,<svg fill='grey' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+        background-position-y: 5px;
+        // border: 1px solid #dfdfdf;
+        // border-radius: 2px;
+        // margin-right: 2rem;
+        // padding: 1rem;
+        // padding-right: 2rem;
+      }
+}
+
+.profile-page{
+    .avatar{
+        border: 2px solid #FF0000;
+        background-color: white;
+        border-radius: 50%;
+        height: 101px;
+        width: 101px;
+    }
+    .customer-name{
+        font-family: $mainBold;
+        font-size: 24px;
+        font-weight: 600;
+        color: #FF0000;
+    }
+    .ticked{
+        img{
+            vertical-align: unset;
+        }
+    }
+    .location-section{
+        background-color: #F3F3F3;
+    }
+}
+
+.ymh-input-style{
+    border: 1px solid #e1e1e1;
+    height: 60px;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: #7A7C7E;
+}
+.cs-select-style{
+    >a{
+        font-size: 14px;
+        color: #7a7c7e;
+    }
+    .dropdown-toggle::after {
+        font-size: 22px;
+        align-self: center;
+        margin-left: 0.255em;
+        content: "";
+        border-top: 0.3em solid;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0;
+        border-left: 0.3em solid transparent;
+        vertical-align: unset;
+    }
+    
+}
+.cs-input-pw{
+    display: flex;
+    position: relative;
+    a{
+        align-self: center;
+        z-index: 1;
+        position: absolute;
+        right: 19px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .profile-page{
+    .avatar-col{
+        width: 101px;
+    }
+    .name-col{
+        width: calc(100% - 101px);
+    }
+  }
+}

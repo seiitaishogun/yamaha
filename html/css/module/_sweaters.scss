@@ -1,0 +1,32 @@
+.cat-banner {
+    position: relative;
+
+    .container-fluid {
+        @media screen and (max-width: 767px){
+            padding: 0;
+        }
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        h1 {
+            font-family: $mainBold;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 48px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+
+            @media all and (min-width: 768px) {
+                font-size: 56px;
+                line-height: 72px;
+                letter-spacing: -1px;
+            }
+        }
+    }
+}

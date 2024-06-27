@@ -1,0 +1,998 @@
+.h-box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  @include size(100%, 88px);
+  background: var(--dark);
+  &.gradient {
+    background: linear-gradient(
+      180deg,
+      #1d1f21 0%,
+      #1d1f21 51%,
+      rgba(29, 31, 33, 0) 100%
+    );
+  }
+  &.normal {
+    background: var(--dark);
+  }
+  .h-logo {
+    img {
+      width: 178px;
+      &.h-logo-2 {
+        display: none;
+      }
+      &.h-logo-1 {
+        display: block;
+      }
+    }
+  }
+  @include e("wrapper") {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  @include respond-to($lg) {
+    @include size(100%, 60px);
+    .h-logo {
+      img {
+        width: 100px;
+      }
+    }
+
+    .icon-menu {
+      position: relative;
+      z-index: 101;
+      @include size(24px, 24px);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      > span {
+        width: 22px;
+        height: 2px;
+        background-color: var(--white);
+        border-radius: 4px;
+        @include transition-default(all 0.3s ease);
+        &:nth-child(1) {
+          width: 18px;
+          margin-bottom: 4px;
+        }
+        &:nth-child(2) {
+          // margin-bottom: 4px;
+        }
+      }
+      &.open {
+        > span {
+          background-color: var(--dark);
+          &:nth-child(1) {
+            width: 22px;
+            margin-bottom: 0;
+            @include transform(rotate(45deg) translate(1px, 2px));
+          }
+
+          &:nth-child(2) {
+            margin-bottom: 0;
+            @include transform(rotate(-45deg) translate(-1px, -1px));
+          }
+        }
+      }
+    }
+  }
+}
+
+.h-menu {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  &__section {
+    .colorGray.fz14 {
+      .fz20 {
+        font-size: 18px;
+      }
+    }
+    strong {
+      font-size: 20px;
+    }
+  }
+  @include e("item") {
+    padding: 0;
+    margin-right: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    a {
+      font-family: $mainBold;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      font-size: 15px;
+    }
+    .ic-search {
+      @include size(24px);
+      display: inline-block;
+      background: var(--white);
+      @include css3_prefix(mask-size, contain);
+      @include css3_prefix(mask-repeat, no-repeat);
+      vertical-align: middle;
+    }
+    &.active {
+      h6 {
+        a {
+          color: var(--red);
+        }
+      }
+    }
+
+    @include m("submenu") {
+      position: relative;
+      padding-right: 10px;
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        @include transform(translateY(-50%));
+        display: block;
+        @include mask-image("../img/ic_chevron-down.svg", contain);
+        background: var(--white);
+        @include size(6px);
+      }
+      &:hover {
+        h6 {
+          a {
+            color: var(--red) !important;
+          }
+        }
+        .h-menu__moto {
+          opacity: 1;
+          visibility: visible;
+        }
+        .h-menu__submenu {
+          opacity: 1;
+          visibility: visible;
+          border: 1px solid #f3f3f3;
+        }
+        &:after {
+          top: calc(50% - 6px);
+          @include transform(rotateX(180deg) translateY(-50%));
+          background: var(--red);
+        }
+      }
+    }
+  }
+  @include e("headline") {
+    font-size: 18px;
+    font-family: $mainBold;
+    font-weight: $bold;
+    color: var(--text);
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+    margin-bottom: 31px;
+  }
+  @include e("category") {
+    li {
+      position: relative;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-gap: $space;
+      color: var(--gray);
+      font-size: 14px;
+      font-weight: $bold;
+      text-transform: uppercase;
+      padding: 0 37px 0 $space;
+      align-items: center;
+      margin-bottom: 42px;
+      &:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        @include transform(translateY(-50%));
+        color: #e9e9e9;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        @include transform(translateY(-50%));
+        @include mask-image("../img/ic_chevron-right.svg", contain);
+        background: var(--gray);
+        display: block;
+        @include size(6px, 8px);
+      }
+      .line {
+        background-color: var(--line);
+        width: 100%;
+        height: 1px;
+      }
+      &.active {
+        color: var(--red);
+        pointer-events: none;
+      }
+    }
+  }
+  @include e("moto") {
+    position: fixed;
+    left: 0;
+    top: 88px;
+    // height: 100vh;
+    width: 100%;
+    background-color: var(--white);
+    padding-top: 24px;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(0.3s);
+    @include m("static") {
+      position: relative;
+      top: 0;
+      opacity: 1;
+      visibility: visible;
+      .h-menu__wrapper {
+        height: auto;
+        overflow: auto;
+      }
+    }
+  }
+  @include e("section") {
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 22px;
+    img {
+      width: 100%;
+      height: 162px;
+      object-fit: contain;
+    }
+    &.active {
+      // .row {
+      //   animation: background 0.8s alternate;
+      // }
+    }
+  }
+  @include e("wrapper") {
+    position: relative;
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: -38px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  @include e("content") {
+    position: relative;
+    height: 100%;
+  }
+  @include e("sticky") {
+    position: relative;
+    width: 100%;
+    background: var(--white);
+    z-index: 100;
+    .h-menu__headline {
+      margin-bottom: 0;
+    }
+  }
+  @include e("submenu") {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 237px;
+    background-color: var(--white);
+    padding: 0 20px 0 $space;
+    opacity: 0;
+    visibility: hidden;
+
+    .h__list {
+      li {
+        padding: 0;
+        a {
+          h5 {
+            font-family: $mainBold;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+            letter-spacing: -0.5px;
+            text-align: left;
+            padding: 10px 0 13px;
+            margin-left: 20px;
+          }
+        }
+
+        &:not(:first-child) {
+          a {
+            h5 {
+              border-top: 1px solid #f3f3f3;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to($lg) {
+    @include e("item") {
+      padding: 0 14px;
+      margin-right: 0;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.category-menu {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  &__section {
+    .colorGray.fz14 {
+      .fz20 {
+        font-size: 18px;
+      }
+    }
+    strong {
+      font-size: 20px;
+    }
+  }
+  @include e("item") {
+    padding: 0;
+    margin-right: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    a {
+      font-family: $mainBold;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .ic-search {
+      @include size(24px);
+      display: inline-block;
+      background: var(--white);
+      @include css3_prefix(mask-size, contain);
+      @include css3_prefix(mask-repeat, no-repeat);
+      vertical-align: middle;
+    }
+    &.active {
+      h6 {
+        a {
+          color: var(--red);
+        }
+      }
+    }
+  }
+  @include e("nav") {
+    width: 256px;
+  }
+  @include e("nav-stick") {
+    &.sticky {
+      position: fixed;
+      top: 100px;
+      width: 256px;
+      padding-right: 10px;
+    }
+  }
+  @include e("headline") {
+    font-size: 18px;
+    font-family: $mainBold;
+    font-weight: $bold;
+    color: var(--text);
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+    margin-bottom: 31px;
+  }
+  @include e("category") {
+    height: 450px;
+    overflow-y: auto;
+    li {
+      position: relative;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-gap: $space;
+      color: var(--gray);
+      font-size: 14px;
+      font-weight: $bold;
+      text-transform: uppercase;
+      padding: 0 37px 0 $space;
+      align-items: center;
+      margin-bottom: 42px;
+      &:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        @include transform(translateY(-50%));
+        color: #e9e9e9;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        @include transform(translateY(-50%));
+        @include mask-image("../img/ic_chevron-right.svg", contain);
+        background: var(--gray);
+        display: block;
+        @include size(6px, 8px);
+      }
+      .line {
+        background-color: var(--line);
+        width: 100%;
+        height: 1px;
+      }
+      &.active {
+        color: var(--red);
+        pointer-events: none;
+      }
+    }
+  }
+  @include e("moto") {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    // padding-top: 24px;
+    @include transition(0.3s);
+    position: relative;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+  @include e("section") {
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 22px;
+    img {
+      width: 100%;
+      height: 162px;
+      object-fit: contain;
+    }
+    &.active {
+      // .row {
+      //   animation: background 0.8s alternate;
+      // }
+    }
+  }
+  @include e("wrapper") {
+    position: relative;
+    margin-top: -38px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  @include e("content") {
+    position: relative;
+    height: 100%;
+  }
+  @include e("sticky") {
+    position: relative;
+    width: 100%;
+    background: var(--white);
+    z-index: 100;
+    .category-menu__headline {
+      margin-bottom: 0;
+    }
+  }
+
+  @include respond-to($lg) {
+    @include e("moto") {
+      display: none;
+    }
+  }
+}
+
+.nav-menu {
+  display: none;
+  
+  @include e("content") {
+    position: relative;
+    height: 100%;
+    .btn__h-drawer {
+      padding: 12px 0 $space;
+    }
+    .h__drawer-list li {
+      padding-left: 0;
+    }
+  }
+ 
+  @include respond-to($lg) {
+    display: block;
+  }
+}
+
+@keyframes background {
+  from {
+    background-color: rgba(255, 0, 0, 0.8);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+.toolbar-nav {
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  z-index: 90;
+  background-color: var(--dark-o);
+  display: none;
+  @media screen and (max-width: 767px) {
+    height: 70px !important;
+  }
+  &:hover {
+    li {
+      a {
+        max-width: 185px;
+      }
+    }
+  }
+  &.is-active {
+    display: block;
+  }
+  li {
+    padding: 0 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 767px) {
+      white-space: inherit;
+      padding: 0 10px;
+    }
+    .icon {
+      display: inline-block;
+      @include size(20px);
+      background: var(--white);
+      @include css3_prefix(mask-size, contain);
+      @include css3_prefix(mask-repeat, no-repeat);
+      vertical-align: middle;
+    }
+    a {
+      display: block;
+      width: 100%;
+      max-width: $space;
+      padding: 14px 0;
+      font-size: 14px;
+      color: var(--white);
+      @include transition(0.3s);
+      font-weight: $bold;
+
+      .text {
+        padding-left: 14px;
+      }
+    }
+    &:after {
+      // border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      content: "";
+      display: block;
+    }
+    &:last-child {
+      border-color: transparent;
+    }
+    &.active,
+    &:hover {
+      background-color: var(--red);
+    }
+  }
+
+  @include respond-to($lg) {
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(32px);
+    justify-content: space-between;
+    height: 72px;
+    width: 100%;
+    display: none;
+    &.dark {
+      background: rgba(29, 31, 33, 0.88);
+      li {
+        .icon {
+          background: var(--white);
+        }
+        a {
+          .text {
+            color: var(--white);
+          }
+        }
+      }
+    }
+    &.is-active {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-auto-rows: 1fr;
+    }
+    &:hover {
+      li {
+        a {
+          max-width: 100%;
+        }
+      }
+    }
+
+    li {
+      .icon {
+        background: var(--dark);
+      }
+
+      a {
+        text-align: center;
+        max-width: 100%;
+        .text {
+          display: block;
+          font-size: 10px;
+          color: var(--dark);
+          padding-top: 5px;
+          padding-left: 0;
+        }
+      }
+
+      &.active,
+      &:hover {
+        background-color: var(--red);
+        font-weight: $bold;
+        .icon {
+          background: var(--white);
+        }
+        a {
+          .text {
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+}
+
+body {
+  &.menu-moto-hover {
+    .h-box {
+      &.gradient {
+        background-color: var(--dark);
+      }
+    }
+  }
+  @include respond-to($lg) {
+    &.open-menu-bar {
+      .h-box.normal {
+        background: var(--white);
+      }
+      .h-box {
+        background: var(--white);
+        &.gradient {
+          background: transparent;
+          background-color: var(--white) !important;
+          border-bottom: 1px solid var(--line);
+        }
+      }
+      .h-menu__item {
+        .ic-search {
+          background: var(--dark);
+        }
+      }
+      .h-logo {
+        img {
+          &.h-logo-2 {
+            display: block;
+          }
+          &.h-logo-1 {
+            display: none;
+          }
+        }
+      }
+      .navmenu-accordion {
+        display: flex;
+        flex-direction: column;
+        .list-social {
+          margin-top: auto;
+          padding-top: 88px;
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+}
+
+.navmenu-accordion {
+  display: none;
+  padding: 0 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include respond-to($lg) {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    background: var(--white);
+    width: 100%;
+    height: calc(100vh - 60px);
+    padding-bottom: 50px;
+    z-index: 9999;
+    .h__accordion-item {
+      position: relative;
+      &.active {
+        .btn__h-accordion {
+          color: var(--red);
+        }
+        .chevron-right::after {
+          background: var(--red);
+        }
+      }
+    }
+    .chevron-right {
+      position: absolute;
+      right: -15px;
+      top: 10px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &::after {
+        content: "";
+        @include mask-image("../img/ic_chevron-right.svg", contain);
+        background: var(--dark);
+        transition: all 0.3s;
+        width: 6px;
+        height: 10px;
+        display: block;
+      }
+      &[aria-expanded="true"] {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+.navmenu-drawer {
+  display: none;
+  padding: 0 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  .back-drawer {
+    position: absolute;
+    left: 24px;
+    top: 15px;
+    z-index: 2;
+    display: inline-block;
+    @include size(24px);
+    background: var(--dark);
+    @include mask-image("../img/ic_chevron-right.svg", 6px);
+    @include transform(rotate(180deg));
+    vertical-align: middle;
+  }
+
+  @include respond-to($lg) {
+    position: fixed;
+    left: 100%;
+    top: 60px;
+    z-index: 9999;
+    background: var(--white);
+    width: 100%;
+    @include transition-default(all 0.3s ease);
+    display: block;
+    &.open {
+      left: 0;
+    }
+  }
+  @include e("sticky") {
+    position: relative;
+    z-index: 1;
+    background: var(--white);
+  }
+  @include e("content") {
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: -52px;
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.navigator {
+  @include e("back") {
+    background-color: var(--white);
+    width: 100%;
+    border-bottom: 1px solid var(--line);
+    a {
+      display: block;
+      padding: $space 0;
+      color: var(--l-gray);
+      font-size: 12px;
+      font-weight: $bold;
+      span {
+        margin-right: 5px;
+      }
+    }
+  }
+  @include e("breadcrumbs") {
+    border-bottom: 1px solid var(--line);
+    @media screen and (max-width: 767px) {
+      &.fixed {
+        position: fixed;
+        left: 0;
+        background-color: var(--white);
+        width: 100%;
+        z-index: 99;
+      }
+    }
+    .breadcrumb {
+      background-color: transparent;
+      padding: $space 0;
+      margin: 0;
+    }
+    .breadcrumb-item {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      a {
+        color: var(--l-gray);
+      }
+      + .breadcrumb-item::before {
+        padding-right: 8px;
+        color: var(--line);
+        font-weight: 600;
+      }
+
+      &.active {
+        color: var(--text);
+        font-size: 10px;
+        @media only screen and (max-width: 768px) {
+          font-size: 12px;
+         }
+      }
+      @media only screen and (max-width: 768px) {
+        font-size: 12px;
+       }
+    }
+  }
+}
+
+.h {
+  @include e("accordion-item") {
+    .cavet {
+      position: relative;
+      @include size(14px);
+      &:after,
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: var(--red);
+        top: 50%;
+        left: 0;
+        @include transform(translateY(-50%));
+      }
+    }
+  }
+  @include e("list") {
+    // border-bottom: 1px solid var(--line);
+    > li {
+      position: relative;
+      cursor: pointer;
+      font-family: $mainBold;
+      font-size: 18px;
+      text-transform: uppercase;
+      padding: 12px $space;
+      align-items: center;
+      margin-bottom: 0;
+      &:hover {
+        a {
+          color: var(--red);
+        }
+      }
+      a {
+        color: var(--l-gray);
+      }
+      &:first-child {
+        margin-bottom: 0;
+      }
+      &:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        font-family: $main;
+        font-weight: normal;
+        line-height: 1;
+        font-size: 12px;
+        @include transform(translateY(-50%));
+        color: var(--red);
+      }
+    }
+  }
+  @include e("social") {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    li {
+      display: inline-block;
+      .icon {
+        display: inline-block;
+        @include size(30px);
+        background: var(--gray);
+        @include css3_prefix(mask-size, contain);
+        @include css3_prefix(mask-repeat, no-repeat);
+        vertical-align: middle;
+      }
+    }
+  }
+  @include e("drawer-list") {
+    li {
+      padding-left: 20px;
+      a {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        grid-auto-rows: auto;
+        align-items: center;
+        margin-bottom: $space;
+      }
+      img {
+        width: 100%;
+      }
+      div {
+        margin-left: 15px;
+      }
+      strong {
+        font-size: 18px;
+      }
+      .fz14 {
+        font-size: 14px;
+        @media screen and (max-width: 960px){
+          .fz14 {
+            font-size: 16px;
+          }
+        }
+      }
+      .fz20 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.h-menu {
+  &__nav {
+    width: 256px;
+    margin-left: 30px;
+    padding-right: 10px;
+  }
+  &__list-item {
+    flex: 1;
+    margin-left: 47px;
+  }
+}
+
+.category-menu {
+  &__nav {
+    width: 256px;
+    margin-left: 30px;
+    padding-right: 10px;
+  }
+  &__list-item {
+    flex: 1;
+    margin-left: 47px;
+    overflow: hidden;
+  }
+}
